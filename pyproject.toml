@@ -1,0 +1,24 @@
+[project]
+name = "diff101"
+version = "0.1.0"
+description = "Gradio app for FLUX.2 4B image generation and editing."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = { text = "MIT" }
+keywords = ["diffusers", "flux", "gradio", "image-generation", "image-editing"]
+
+dependencies = [
+  "gradio>=4.0.0",
+  "pillow>=10.0.0",
+  "diffusers @ git+https://github.com/huggingface/diffusers.git",
+  "transformers",
+  "accelerate",
+  "safetensors",
+]
+
+[project.optional-dependencies]
+torch = ["torch"]
+
+[tool.uv]
+# Keep uv from auto-adding build backends; this is an app project.
+package = false
