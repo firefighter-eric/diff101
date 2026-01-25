@@ -13,3 +13,5 @@ __pycache__/
 .gradio/
 outputs/
 data/
+
+uv.lock

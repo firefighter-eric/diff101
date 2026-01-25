@@ -14,6 +14,7 @@ dependencies = [
   "transformers",
   "accelerate",
   "safetensors",
+  "torch==2.9.1",
 ]
 
 [project.optional-dependencies]
@@ -22,3 +23,4 @@ torch = ["torch"]
 [tool.uv]
 # Keep uv from auto-adding build backends; this is an app project.
 package = false
+index-url = "https://pypi.tuna.tsinghua.edu.cn/simple"

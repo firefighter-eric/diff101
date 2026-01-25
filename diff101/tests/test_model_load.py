@@ -10,6 +10,7 @@ pipe = Flux2KleinPipeline.from_pretrained(
     torch_dtype=dtype,
     # local_files_only=True,
 )
+pipe = pipe.to(device)
 # pipe.enable_model_cpu_offload()  # save some VRAM by offloading the model to CPU
 
 prompt = "A cat holding a sign that says hello world"
