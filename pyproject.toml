@@ -11,10 +11,11 @@ dependencies = [
   "gradio>=4.0.0",
   "pillow>=10.0.0",
   "diffusers @ git+https://github.com/huggingface/diffusers.git",
-  "transformers",
+  "transformers==4.57.6",
   "accelerate",
   "safetensors",
   "torch==2.9.1",
+  "diffsynth==2.0.4",
 ]
 
 [project.optional-dependencies]
