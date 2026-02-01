@@ -11,7 +11,8 @@ __pycache__/
 .idea/
 .vscode/
 .gradio/
-outputs/
-data/
+/outputs
+/data
+/models
 
 uv.lock
