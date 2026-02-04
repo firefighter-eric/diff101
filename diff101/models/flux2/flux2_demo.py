@@ -1,5 +1,6 @@
 import torch
 from diffusers import Flux2KleinPipeline
+import time
 
 device = "cuda"
 dtype = torch.bfloat16
@@ -36,16 +37,23 @@ pipeline.enable_model_cpu_offload()  # save some VRAM by offloading the model to
 
 
 def generate() -> None:
-    size=512
+    width = 2048
+    height = 1152
     prompt = "A cat holding a sign that says hello world"
+    start_time = time.time()
     image = pipeline(
         prompt=prompt,
-        height=size,
-        width=size,
-        guidance_scale=6.0,
+        height=height,
+        width=width,
+        guidance_scale=1.0,
         num_inference_steps=4,
         generator=torch.Generator(device=device).manual_seed(0),
     ).images[0]
+    end_time = time.time()
+    elapsed = end_time - start_time
+    print(f"Generation took {elapsed:.2f} seconds")
+    width, height = image.size
+    print(f"Generated image of size ({width}, {height}) for prompt: {prompt}")
     # image.save("flux-klein.png")
 
 
